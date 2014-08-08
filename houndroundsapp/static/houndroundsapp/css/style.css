@@ -14,11 +14,24 @@
 
 	body
 	{
-		background: #183026 url('../images/images.jpeg') repeat;
+		background: #183026 url('../images/images.png') no-repeat;
+		background-color: #FFF;
 		background-size: auto;
-		background-position: center 0;
+		background-position: left 0;
 		background-attachment: fixed;
 	}
+
+   tr { 
+	vertical-align: top;
+    }
+
+   /*
+	STRUCTURE
+   */
+   .post { 
+	   width: 500px; 
+}
+
 
 	body,input,textarea,select
 	{
@@ -480,6 +493,8 @@
 			/*	background: #fff */;
 				box-shadow: inset 0 0 0 1px #2F4F4F;
 				margin: 10px;
+				height: 240px;
+			    width: 300px;
 			}
 
 				.button.style2:hover
@@ -680,6 +695,7 @@
 			{
 				background: #fff;
 				padding: 3em;
+				box-shadow: inset 0 0 0 1px #2F4F4F;
 			}
 			
 				.box.style3 header
@@ -1215,6 +1231,7 @@
 		{
 			color: #2F4F4F;
 			text-shadow: 0 0 0.5px rgba(53,184,130,0.25);
+			box-shadow: inset 0 0 0 1px #2F4F4F;
 		}
 
 		#banner header
@@ -1275,6 +1292,7 @@
 		{
 			color: #2F4F4F;
 			text-shadow: 0 0 0.5px rgba(53,184,130,0.25);
+			box-shadow: inset 0 0 0 1px #2F4F4F;
 		}
 
 		#banner2 header
@@ -1334,6 +1352,7 @@
 		{
 			color: #2F4F4F;
 			text-shadow: 0 0 0.5px rgba(53,184,130,0.25);
+			box-shadow: inset 0 0 0 1px #2F4F4F;
 		}
 
 		#banner3 header
