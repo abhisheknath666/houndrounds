@@ -27,12 +27,6 @@
             		event.preventDefault();
             	});   
             });
-            
-            function setUserType(usertype,section) {
-            document.getElementById("userType").value = usertype;
-            window.location.href=section;
-            document.forms["houndroundsform"].submit();
-            }                    
         </script>
         <noscript>
             <link rel="stylesheet" href="css/skel-noscript.css" />
@@ -141,18 +135,32 @@
                 </div>
             </article>
         </form>
-        <section id="footer">
-            <ul class="icons">
-                <li><a href="#" class="fa fa-twitter solo"><span>Twitter</span></a></li>
-                <li><a href="#" class="fa fa-facebook solo"><span>Facebook</span></a></li>
-                <li><a href="#" class="fa fa-google-plus solo"><span>Google+</span></a></li>
-                <li><a href="#" class="fa fa-pinterest solo"><span>Pinterest</span></a></li>
-            </ul>
-            <div class="copyright">
-                <ul class="menu">
-                    <li>&copy; HoundRounds. All rights reserved.</li>
-                </ul>
-            </div>
-        </section>
-    </body>
+			<article id="thankyou" class="container box style3" style="padding: 50px; margin-top: 192px">
+					<section id="footer">
+					<h2>Thank You! We'll be in touch!</h2><br>
+					<p> Follow us on <a href="http://www.twitter.com/" target="_blank"><span style="color:#4099FF;">Twitter</span></a> and like us on <a  href="http://www.facebook.com/" target="_blank"<span style="color:#3B5998;">Facebook</span></a> to keep you up to date with all our news and announcements</p>
+					<br><br>
+					<ul class="icons">
+				<li><a href="#" class="fa fa-twitter solo"><span>Twitter</span></a></li>
+				<li><a href="#" class="fa fa-facebook solo"><span>Facebook</span></a></li>
+				<li><a href="#" class="fa fa-pinterest solo"><span>Pinterest</span></a></li>
+			</ul>
+			</section>
+				</article>
+			
+		<section id="footer">
+			<div class="copyright">
+			<ul class="menu">
+					<li>&copy; HoundRounds. All rights reserved.</li>
+			</ul>
+			</div>
+		</section>
+    <script>
+    function setUserType(usertype,section) {
+        document.getElementById("userType").value = usertype;
+        window.location.href=section;
+<!--        document.forms["houndroundsform"].submit();-->
+    }                    
+    </script>
+	</body>
 </html>
