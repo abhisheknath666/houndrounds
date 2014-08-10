@@ -59,7 +59,7 @@
                 <br><br>    			
                 <footer>
                     <h2>Choose one:</h2>
-                    <input name="userType" type="text" id="userType" style="visibility:hidden;" />    
+                    <input name="userType" type="text" id="userType" style="visibility:hidden;" /><br>    
                     <a <input name="walkerbutton" type="button" value="Walker" onclick="setUserType('walker','./signup/#banner2')" class="button style2 scrolly scrolly-centered" style="width:240px height:240px"><img src="{{ STATIC_URL }}houndroundsapp/images/jogging.png" alt=""</img><br>I want to walk dogs</a>
                     <a <input name="ownerbutton" value="Dog" type="button" onclick="setUserType('owner','./signup/#banner')" class="button style2 scrolly scrolly-centered"><img src="{{ STATIC_URL }}houndroundsapp/images/dogjogging.png" alt="" </img><br>I want my dog walked</a>
                 </footer>
@@ -129,7 +129,8 @@
                 <div class="row">
                     <div class="12u">
                         <ul class="actions">
-                            <input type="submit" value="Submit" />
+                               <li><input type="submit" class="button form style scrolly scrolly-centered" value="Submit"></input></li>
+
                         </ul>
                     </div>
                 </div>
