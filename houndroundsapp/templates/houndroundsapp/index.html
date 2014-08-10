@@ -1,154 +1,158 @@
 <!DOCTYPE HTML>
 <!--
-	Overflow 1.1 by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+    Overflow 1.1 by HTML5 UP
+    html5up.net | @n33co
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+    -->
 <html>
     <link rel="stylesheet" href="{{ STATIC_URL }}houndroundsapp/css/style.css" />
-	<head>
-		<title>HoundRounds - Dog's Best Friend</title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic" rel="stylesheet" type="text/css" />
-		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery.poptrox.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/init.js"></script>
-		<script src="jquery.mousewheel.js"></script>
-		<script>
-	$(function(){
-		$("#page-wrap").wrapInner("<table cellspacing='30'><tr>");
-		$(".post").wrap("<td></td>");
-		$("body").mousewheel(function(event, delta) {
-			this.scrollLeft -= (delta * 30);
-			event.preventDefault();
-		});   
-	});
-	</script>
-		<noscript>
-			<link rel="stylesheet" href="css/skel-noscript.css" />
-			<link rel="stylesheet" href="css/style.css" />
-		</noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-	</head>
-	<body>
-		<!-- Header -->
-			<form action="./signup" method="post">
-			<section id="header" style="padding: 100px 0px 100px 0px !important;">
-				<header>
-					<h1>Hound Rounds</h1>Dog's Best Friend
-					<p> On demand dog walking service</p>
-					<br>
-					<br>
-		<!-- Feature 1 -->
-		<div class="inner gallery">
-	<!--	<img src="{{ STATIC_URL }}houndroundsapp/images/houndrounds_strip.png">-->
-		<div class="box style" style="text-align: center; background-color: transparent">
-				<div style="display: inline-block; padding:0px 10px 0px 10px"><a><img src="{{ STATIC_URL }}houndroundsapp/images/hr_strip1.png" alt="" /></a></div>
-				<div style="display: inline-block; padding:0px 10px 0px 10px"><a><img src="{{ STATIC_URL }}houndroundsapp/images/hr_strip2.png" alt="" /></a></div>
-				<div style="display: inline-block; padding:0px 10px 0px 10px"><a><img src="{{ STATIC_URL }}houndroundsapp/images/hr_strip3.png" alt="" /></a></div>
-	 	</div>  
-	 	</div> 
-						</header><br><br>    			
-				<footer>
-					<h2>Choose one:</h2>
-					<a <input name="usertype" value="Walker" href="#banner2" class="button style2 scrolly scrolly-centered" style="width:240px height:240px"><img src="{{ STATIC_URL }}houndroundsapp/images/jogging.png" alt=""</img><br>I want to walk dogs</a>
-					<a <input name="usertype" value="Dog" href="#banner" class="button style2 scrolly scrolly-centered"><img src="{{ STATIC_URL }}houndroundsapp/images/dogjogging.png" alt="" </img><br>I want my dog walked</a>
-				</footer>
-			</section>	
-			
-		<!-- Banner -->
-		
-			<section id="banner">
-				<footer>
-				<p style="font-weight: 600;font-size: 1em;letter-spacing: 2px;">HOW OFTEN DO YOU NEED SOMEONE TO WALK YOUR DOG?</p>
-				<p
-      			  <fieldset>
+    <head>
+        <title>HoundRounds - Dog's Best Friend</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic" rel="stylesheet" type="text/css" />
+        <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.poptrox.min.js"></script>
+        <script src="js/skel.min.js"></script>
+        <script src="js/init.js"></script>
+        <script src="jquery.mousewheel.js"></script>
+        <script>
+            $(function(){
+            	$("#page-wrap").wrapInner("<table cellspacing='30'><tr>");
+            	$(".post").wrap("<td></td>");
+            	$("body").mousewheel(function(event, delta) {
+            		this.scrollLeft -= (delta * 30);
+            		event.preventDefault();
+            	});   
+            });
+            
+            function setUserType(usertype,section) {
+            document.getElementById("userType").value = usertype;
+            window.location.href=section;
+            document.forms["houndroundsform"].submit();
+            }                    
+        </script>
+        <noscript>
+            <link rel="stylesheet" href="css/skel-noscript.css" />
+            <link rel="stylesheet" href="css/style.css" />
+        </noscript>
+        <!--[if lte IE 8]>
+        <link rel="stylesheet" href="css/ie/v8.css" />
+        <![endif]-->
+    </head>
+    <body>
+        <!-- Header -->
+        <form action="./signup" method="post" id="houndroundsform">
+            <section id="header" style="padding: 100px 0px 100px 0px !important;">
+                <header>
+                    <h1>Hound Rounds</h1>
+                    Dog's Best Friend
+                    <p> On demand dog walking service</p>
+                    <br>
+                    <br>
+                    <!-- Feature 1 -->
+                    <div class="inner gallery">
+                        <!--	<img src="{{ STATIC_URL }}houndroundsapp/images/houndrounds_strip.png">-->
+                        <div class="box style" style="text-align: center; background-color: transparent">
+                            <div style="display: inline-block; padding:0px 10px 0px 10px"><a><img src="{{ STATIC_URL }}houndroundsapp/images/hr_strip1.png" alt="" /></a></div>
+                            <div style="display: inline-block; padding:0px 10px 0px 10px"><a><img src="{{ STATIC_URL }}houndroundsapp/images/hr_strip2.png" alt="" /></a></div>
+                            <div style="display: inline-block; padding:0px 10px 0px 10px"><a><img src="{{ STATIC_URL }}houndroundsapp/images/hr_strip3.png" alt="" /></a></div>
+                        </div>
+                    </div>
+                </header>
+                <br><br>    			
+                <footer>
+                    <h2>Choose one:</h2>
+                    <input name="userType" type="text" id="userType" style="visibility:hidden;" />    
+                    <a <input name="walkerbutton" type="button" value="Walker" onclick="setUserType('walker','./signup/#banner2')" class="button style2 scrolly scrolly-centered" style="width:240px height:240px"><img src="{{ STATIC_URL }}houndroundsapp/images/jogging.png" alt=""</img><br>I want to walk dogs</a>
+                    <a <input name="ownerbutton" value="Dog" type="button" onclick="setUserType('owner','./signup/#banner')" class="button style2 scrolly scrolly-centered"><img src="{{ STATIC_URL }}houndroundsapp/images/dogjogging.png" alt="" </img><br>I want my dog walked</a>
+                </footer>
+            </section>
+            <!-- Banner -->
+            <section id="banner">
+                <footer>
+                    <p style="font-weight: 600;font-size: 1em;letter-spacing: 2px;">HOW OFTEN DO YOU NEED SOMEONE TO WALK YOUR DOG?</p>
+                    <p
+                    <fieldset>
                         <input type="radio" name="frequency" value="Twice" />Twice a day ($10.00 per walk)<br>
                         <input type="radio" name="frequency" value="Once" />Once a day ($15.00 per walk)<br>
                         <input type="radio" name="frequency" value="Few_days" />Few days a week ($20.00 per walk)<br><br>
-   				  </fieldset>
-				</p>
-				<p style="font-weight: 600;font-size: 1em;letter-spacing: 2px;">HOW CAN WE PICK UP YOUR DOG?</p>
-				<p
-      			  <fieldset>
+                    </fieldset>
+                    </p>
+                    <p style="font-weight: 600;font-size: 1em;letter-spacing: 2px;">HOW CAN WE PICK UP YOUR DOG?</p>
+                    <p
+                    <fieldset>
                         <input type="radio" name="access" value="will_be_home" />I will be home to let my dog out<br>
                         <input type="radio" name="access" value="timed_access_code" />I have a timed access code/device<br>
                         <input type="radio" name="access" value="install_access_device" />I will need to install a access device<br><br>
-   				  </fieldset>
-				</p>
-				<p style="font-weight: 600;font-size: 1em;letter-spacing: 2px;">HOW SOON WOULD YOU LIKE YOUR DOG TO BE PICKED UP?</p>
-				<p
-      			  <fieldset>
+                    </fieldset>
+                    </p>
+                    <p style="font-weight: 600;font-size: 1em;letter-spacing: 2px;">HOW SOON WOULD YOU LIKE YOUR DOG TO BE PICKED UP?</p>
+                    <p
+                    <fieldset>
                         <input type="radio" name="schedule" value="15mins" />Within 15 mins<br>
                         <input type="radio" name="schedule" value="2-3hours" />within 2-3 hours<br>
                         <input type="radio" name="schedule" value="scheduled_time" />At a scheduled time<br><br>
-					    <a href="#signup" class="button style scrolly scrolly-centered">Submit</a>
-   				  </fieldset>
-				</p>
-				</footer>
-			</section>
-
-		<!-- Banner2 -->
-		
-			<section id="banner2">
-				<footer>
-				<p style="font-weight: 600;font-size: 1em;letter-spacing: 2px;">HOW OFTEN ARE YOU AVAILABLE TO WALK SOMEONE'S DOG?</p>
-				<p
-      			  <fieldset>
+                        <a href="#signup" class="button style scrolly scrolly-centered">Submit</a>
+                    </fieldset>
+                    </p>
+                </footer>
+            </section>
+            <!-- Banner2 -->
+            <section id="banner2">
+                <footer>
+                    <p style="font-weight: 600;font-size: 1em;letter-spacing: 2px;">HOW OFTEN ARE YOU AVAILABLE TO WALK SOMEONE'S DOG?</p>
+                    <p
+                    <fieldset>
                         <input type="radio" name="frequency" value="Twice" />Twice a day<br>
                         <input type="radio" name="frequency" value="Once" />Once a day<br>
                         <input type="radio" name="frequency" value="Few_days" />Few days a week<br><br>
-   				  </fieldset>
-				</p>
-				<p style="font-weight: 600;font-size: 1em;letter-spacing: 2px;">HOW MUCH NOTICE DO YOU NEED BEFORE A PICK UP?</p>
-				<p
-      			  <fieldset>
+                    </fieldset>
+                    </p>
+                    <p style="font-weight: 600;font-size: 1em;letter-spacing: 2px;">HOW MUCH NOTICE DO YOU NEED BEFORE A PICK UP?</p>
+                    <p
+                    <fieldset>
                         <input type="radio" name="schedule" value="15mins" />15 mins<br>
                         <input type="radio" name="schedule" value="2-3hours" />2-3 hours<br>
                         <input type="radio" name="schedule" value="scheduled_time" />Scheduled times only<br><br>
-					    <a href="#signup" class="button style scrolly scrolly-centered">Submit</a>
-   				  </fieldset>
-				</p>
-				</footer>
-			</section>
-
-
-		<!-- Contact -->
-			<article id="signup" class="container box style3" style="margin-top: 192px">
-				<header>
-					<h2>Sign up for early access!</h2><br>
-				</header>
-					<div class="row half">
-						<div class="6u"><input type="text" class="text" name="name" placeholder="Name" /></div>
-						<div class="6u"><input type="text" class="text" name="email" placeholder="Email" /></div>
-					</div>
-					<div class="row">
-						<div class="12u">
-							<ul class="actions">
-                                <input type="submit" value="Submit" />
-							</ul>
-						</div>
-					</div>
-			</article>
-			</form>
-
-		<section id="footer">
-			<ul class="icons">
-				<li><a href="#" class="fa fa-twitter solo"><span>Twitter</span></a></li>
-				<li><a href="#" class="fa fa-facebook solo"><span>Facebook</span></a></li>
-				<li><a href="#" class="fa fa-google-plus solo"><span>Google+</span></a></li>
-				<li><a href="#" class="fa fa-pinterest solo"><span>Pinterest</span></a></li>
-			</ul>
-			<div class="copyright">
-				<ul class="menu">
-					<li>&copy; HoundRounds. All rights reserved.</li>
-				</ul>
-			</div>
-		</section>
-
-	</body>
+                        <a href="#signup" class="button style scrolly scrolly-centered">Submit</a>
+                    </fieldset>
+                    </p>
+                </footer>
+            </section>
+            <!-- Contact -->
+            <article id="signup" class="container box style3" style="margin-top: 192px">
+                <header>
+                    <h2>Sign up for early access!</h2>
+                    <br>
+                </header>
+                <div class="row half">
+                    <div class="6u"><input type="text" class="text" name="name" placeholder="Name" /></div>
+                    <div class="6u"><input type="text" class="text" name="email" placeholder="Email" /></div>
+                </div>
+                <div class="row">
+                    <div class="12u">
+                        <ul class="actions">
+                            <input type="submit" value="Submit" />
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </form>
+        <section id="footer">
+            <ul class="icons">
+                <li><a href="#" class="fa fa-twitter solo"><span>Twitter</span></a></li>
+                <li><a href="#" class="fa fa-facebook solo"><span>Facebook</span></a></li>
+                <li><a href="#" class="fa fa-google-plus solo"><span>Google+</span></a></li>
+                <li><a href="#" class="fa fa-pinterest solo"><span>Pinterest</span></a></li>
+            </ul>
+            <div class="copyright">
+                <ul class="menu">
+                    <li>&copy; HoundRounds. All rights reserved.</li>
+                </ul>
+            </div>
+        </section>
+    </body>
 </html>

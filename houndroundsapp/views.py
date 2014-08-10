@@ -46,7 +46,7 @@ def signup(request):
         frequency = request.POST.get("frequency","")
         access = request.POST.get("access","")
         print "Email: "+email+"\nName: "+name+"\nSchedule: "+schedule+"\nFrequency: "+frequency+"\nAccess: "+access
-        return HttpResponse("success")
+        redirect_url = reverse('signup')+"#thankyou"
+        return HttpResponseRedirect(redirect_url)
     context = {}
     return render(request, 'houndroundsapp/index.html', context)
-
