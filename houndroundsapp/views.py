@@ -9,44 +9,57 @@ import json
 import base64
 import urllib
 
+from houndroundsapp.models import Person, PetOwner, Walker
+
 def index(request):
     return HttpResponseRedirect("http://houndrounds.com")
 
+def create_walker(name,email,walker_frequency, walker_schedule):
+    try:
+        person, created = Person.objects.get_or_create(email=email, name=name)
+        walker, created = Walker.objects.get_or_create(person=person, defaults={'frequency':walker_frequency,
+                                                                   'schedule':walker_schedule})
+        return Walker
+    except:
+        return None
+
+def create_owner(name,email,access,owner_frequency,owner_schedule):
+    try:
+        person,created = Person.objects.get_or_create(email=email, name=name)
+        owner,created = Owner.objects.get_or_create(person=person, defaults={'pet_access':access,
+                                                                  'frequency':owner_frequency,
+                                                                  'schedule':owner_schedule})
+        return owner
+    except:
+        return None
+
 @csrf_exempt
 def signup(request):
-    #     form = None
-    #     if request.method=='POST':        
-    #         form = ListenerAvailabilityForm(request.POST)
-    #         if form.is_valid():
-    #             cleaned_data = form.cleaned_data
-    #             availability = cleaned_data.get("availability",listener.enabled)
-    #             listener.enabled = availability
-    #             listener.busy = False
-    #             listener.save()
-    #     else:
-    #         form = ListenerAvailabilityForm()
-    #     availability_str = "unavailable"
-    #     if listener.enabled:
-    #         availability_str = "available"
-    #     context = { 'listener' : listener, 
-    #                 'total_minutes': str(total_minutes),
-    #                 'unpaid_minutes' : str(unpaid_minutes),
-    #                 'redirect_url' : str(redirect_url),
-    #                 'availability' : availability_str,
-    #                 'form' : form}
-    #     return render(request, 'houndroundsapp/index.html', context)
-    # except Exception as e:
-    #     logger.debug("%s",str(e))
-    #     raise Http404
     if request.method=='POST':
         print str(request.POST)
         email = request.POST.get("email","guest@guest.com")
         name = request.POST.get("name", "guest")
-        schedule = request.POST.get("schedule","")
-        frequency = request.POST.get("frequency","")
+        walker_schedule = request.POST.get("walker_schedule","")
+        walker_frequency = request.POST.get("walker_frequency","")
+        owner_schedule = request.POST.get("owner_schedule","")
+        owner_frequency = request.POST.get("owner_frequency","")        
         access = request.POST.get("access","")
-        print "Email: "+email+"\nName: "+name+"\nSchedule: "+schedule+"\nFrequency: "+frequency+"\nAccess: "+access
-        redirect_url = reverse('signup')+"#thankyou"
+        redirect_url = reverse('thankyou')
+        success = True
+        if walker_schedule!="":
+            walker = create_walker(name,email,walker_frequency, walker_schedule)            
+            success = success or (walker!=None)
+            print "Walker",walker
+        if owner_schedule!="":
+            owner = create_owner(name,email,access,owner_frequency,owner_schedule)
+            success = success or (owner!=None)
+            print "Owner",owner
+        if not success:
+            return HttpResponse("failed")
         return HttpResponseRedirect(redirect_url)
     context = {}
     return render(request, 'houndroundsapp/index.html', context)
+
+@csrf_exempt
+def thankyou(request):
+    return render(request, 'houndroundsapp/thankyou.html')
