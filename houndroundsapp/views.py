@@ -12,7 +12,7 @@ import urllib
 from houndroundsapp.models import Person, PetOwner, Walker
 
 def index(request):
-    return HttpResponseRedirect("http://houndrounds.com")
+    return HttpResponseRedirect("http://houndrounds.com/houndrounds/signup")
 
 def create_walker(name,email,walker_frequency, walker_schedule):
     try:
@@ -20,18 +20,20 @@ def create_walker(name,email,walker_frequency, walker_schedule):
         walker, created = Walker.objects.get_or_create(person=person, defaults={'frequency':walker_frequency,
                                                                    'schedule':walker_schedule})
         return Walker
-    except:
-        return None
+    except Exception as e:
+        print str(e)
+    return None
 
 def create_owner(name,email,access,owner_frequency,owner_schedule):
     try:
         person,created = Person.objects.get_or_create(email=email, name=name)
-        owner,created = Owner.objects.get_or_create(person=person, defaults={'pet_access':access,
+        owner,created = PetOwner.objects.get_or_create(person=person, defaults={'pet_access':access,
                                                                   'frequency':owner_frequency,
                                                                   'schedule':owner_schedule})
         return owner
-    except:
-        return None
+    except Exception as e:
+        print str(e)
+    return None
 
 @csrf_exempt
 def signup(request):
